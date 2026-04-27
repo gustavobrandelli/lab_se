@@ -4,11 +4,11 @@ from machine import ADC, Pin
 import time
 
 # Configurações de Wi-Fi
-SSID = "NOME_DA_REDE"
-PASSWORD = "SENHA_DA_REDE"
+SSID = "PEIXE_195_2G"
+PASSWORD = "casabrandelli"
 
 # Componentes
-pot = ADC(Pin(36))
+led_azul = Pin(12, Pin.OUT)
 
 def conecta_wifi():
     wlan = network.WLAN(network.STA_IF)

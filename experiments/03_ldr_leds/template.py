@@ -1,6 +1,6 @@
 # Experimento 3 — LDR e Histerese
 # Professor: Prof. Me. João Miguel Lac Roehe
-# Aluno: ___________________________  Data: ___/___/______
+# Aluno: gustavo brandelli  Data: _20/_04/2026
 #
 # ---------------------------------------------------------------
 # ETAPA 1 (Intermediária): Leia o LDR e imprima o valor bruto no Shell.
@@ -10,8 +10,8 @@
 # REFLEXÃO (Obrigatório):
 # Como a utilização de dois limiares (Histerese) melhora a estabilidade 
 # do sistema em comparação a um limiar único?
-# Resposta: _____________________________________________________
-# _______________________________________________________________
+# Resposta: evita a variacao aleatoria, com dois parametreos ha uma faixa de trabalho
+
 
 from machine import Pin, ADC
 from time import sleep
@@ -20,10 +20,20 @@ ldr = ADC(Pin(1))
 ldr.atten(ADC.ATTN_11DB)
 led = Pin(13, Pin.OUT)
 
+# Definição dos limiares (ajuste conforme seu ambiente)
+LIMIAR_ALTO = 2500
+LIMIAR_BAIXO = 1500
+
 while True:
     valor = ldr.read()
-    # TODO: Etapa 1 - Print valor
     
-    # TODO: Etapa 2 - Se valor > Limiar_Alto -> Liga LED; Se valor < Limiar_Baixo -> Desliga
+    # --- Etapa 1 ---
+    print(valor)
+    
+    # --- Etapa 2 ---
+    if valor > LIMIAR_ALTO:
+        led.on()
+    elif valor < LIMIAR_BAIXO:
+        led.off()
     
     sleep(0.1)

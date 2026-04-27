@@ -3,7 +3,7 @@ from time import sleep
 from utils import map_value
 
 # Configura Potenciômetro
-adc = ADC(Pin(36))
+adc = ADC(Pin(A0))
 adc.atten(ADC.ATTN_11DB)
 
 # Configura LED Azul para PWM
